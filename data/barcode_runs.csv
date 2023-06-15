@@ -1,0 +1,17 @@
+date,virus_batch,library,sample_type,antibody,antibody_concentration,replicate,fastq_R1,exclude_after_counts,notes
+2023-06-14,thaw-1,Lib-1,VSVG_control,,,1,/fh/fast/bloom_j/SR/ngs/illumina/bdadonai/230601_VH00699_320_AAAY223HV/Unaligned/Project_bdadonai/XBB15_RBD1_VSVG_S35_R1_001.fastq.gz,,repeated
+2023-06-14,thaw-1,Lib-2,VSVG_control,,,1,/fh/fast/bloom_j/SR/ngs/illumina/bdadonai/230601_VH00699_320_AAAY223HV/Unaligned/Project_bdadonai/XBB15_RBD2_VSVG_S36_R1_001.fastq.gz,,repeated
+2023-06-14,thaw-1,Lib-1,no-antibody_control,,,1,/fh/fast/bloom_j/SR/ngs/illumina/bdadonai/230601_VH00699_320_AAAY223HV/Unaligned/Project_bdadonai/XBB15_RBD1_S39_R1_001.fastq.gz,,
+2023-06-14,thaw-1,Lib-2,no-antibody_control,,,1,/fh/fast/bloom_j/SR/ngs/illumina/bdadonai/230601_VH00699_320_AAAY223HV/Unaligned/Project_bdadonai/XBB15_RBD2_S40_R1_001.fastq.gz,,
+2023-06-15,thaw-1,Lib-1,VSVG_control,,,1,/fh/fast/bloom_j/SR/ngs/illumina/bdadonai/230601_VH00699_320_AAAY223HV/Unaligned/Project_bdadonai/XBB15_RBD1_VSVG_S35_R1_001.fastq.gz,,repeated
+2023-06-15,thaw-1,Lib-2,VSVG_control,,,1,/fh/fast/bloom_j/SR/ngs/illumina/bdadonai/230601_VH00699_320_AAAY223HV/Unaligned/Project_bdadonai/XBB15_RBD2_VSVG_S36_R1_001.fastq.gz,,repeated
+2023-06-15,thaw-1,Lib-1,no-antibody_control,,,1,/fh/fast/bloom_j/SR/ngs/illumina/bdadonai/230601_VH00699_320_AAAY223HV/Unaligned/Project_bdadonai/XBB15_RBD1_medium_ACE2_0_S11_R1_001.fastq.gz,,
+2023-06-15,thaw-1,Lib-2,no-antibody_control,,,1,/fh/fast/bloom_j/SR/ngs/illumina/bdadonai/230601_VH00699_320_AAAY223HV/Unaligned/Project_bdadonai/XBB15_RBD2_medium_ACE2_0_S17_R1_001.fastq.gz,,
+2023-06-16,thaw-2,Lib-1,no-antibody_control,SC27,,1,/fh/fast/bloom_j/SR/ngs/illumina/bdadonai/230612_VH01189_123_AACVCHYM5/Unaligned/Project_bdadonai/XBB15_RBD_lib1_SC27_0_S7_R1_001.fastq.gz,,
+2023-06-16,thaw-2,Lib-1,antibody,SC27,8.95,1,/fh/fast/bloom_j/SR/ngs/illumina/bdadonai/230612_VH01189_123_AACVCHYM5/Unaligned/Project_bdadonai/XBB15_RBD_lib1_SC27_1_S8_R1_001.fastq.gz,,
+2023-06-16,thaw-2,Lib-1,antibody,SC27,35.8,1,/fh/fast/bloom_j/SR/ngs/illumina/bdadonai/230612_VH01189_123_AACVCHYM5/Unaligned/Project_bdadonai/XBB15_RBD_lib1_SC27_2_S9_R1_001.fastq.gz,,
+2023-06-16,thaw-2,Lib-1,antibody,SC27,143.2,1,/fh/fast/bloom_j/SR/ngs/illumina/bdadonai/230612_VH01189_123_AACVCHYM5/Unaligned/Project_bdadonai/XBB15_RBD_lib1_SC27_3_S10_R1_001.fastq.gz,,
+2023-06-16,thaw-2,Lib-2,no-antibody_control,SC27,,1,/fh/fast/bloom_j/SR/ngs/illumina/bdadonai/230612_VH01189_123_AACVCHYM5/Unaligned/Project_bdadonai/XBB15_RBD_lib2_SC27_0_S17_R1_001.fastq.gz,,
+2023-06-16,thaw-2,Lib-2,antibody,SC27,8.95,1,/fh/fast/bloom_j/SR/ngs/illumina/bdadonai/230612_VH01189_123_AACVCHYM5/Unaligned/Project_bdadonai/XBB15_RBD_lib2_SC27_1_S18_R1_001.fastq.gz,,
+2023-06-16,thaw-2,Lib-2,antibody,SC27,35.8,1,/fh/fast/bloom_j/SR/ngs/illumina/bdadonai/230612_VH01189_123_AACVCHYM5/Unaligned/Project_bdadonai/XBB15_RBD_lib2_SC27_2_S19_R1_001.fastq.gz,,
+2023-06-16,thaw-2,Lib-2,antibody,SC27,143.2,1,/fh/fast/bloom_j/SR/ngs/illumina/bdadonai/230612_VH01189_123_AACVCHYM5/Unaligned/Project_bdadonai/XBB15_RBD_lib2_SC27_3_S20_R1_001.fastq.gz,,

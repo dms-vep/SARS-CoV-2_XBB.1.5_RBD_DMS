@@ -1,0 +1,17 @@
+library,sample,avg_counts,min_avg_counts,adequate_counts,exclude_after_counts
+Lib-1,2023-06-14_thaw-1_VSVG_control_1,261.7,20,True,no
+Lib-1,2023-06-14_thaw-1_no-antibody_control_1,292.8,20,True,no
+Lib-1,2023-06-15_thaw-1_VSVG_control_1,261.7,20,True,no
+Lib-1,2023-06-15_thaw-1_no-antibody_control_1,252.0,20,True,no
+Lib-1,2023-06-16_thaw-2_antibody_SC27_143.2_1,172.9,20,True,no
+Lib-1,2023-06-16_thaw-2_antibody_SC27_35.8_1,215.7,20,True,no
+Lib-1,2023-06-16_thaw-2_antibody_SC27_8.95_1,175.9,20,True,no
+Lib-1,2023-06-16_thaw-2_no-antibody_control_1,126.3,20,True,no
+Lib-2,2023-06-14_thaw-1_VSVG_control_1,221.5,20,True,no
+Lib-2,2023-06-14_thaw-1_no-antibody_control_1,232.5,20,True,no
+Lib-2,2023-06-15_thaw-1_VSVG_control_1,221.5,20,True,no
+Lib-2,2023-06-15_thaw-1_no-antibody_control_1,214.8,20,True,no
+Lib-2,2023-06-16_thaw-2_antibody_SC27_143.2_1,177.7,20,True,no
+Lib-2,2023-06-16_thaw-2_antibody_SC27_35.8_1,112.8,20,True,no
+Lib-2,2023-06-16_thaw-2_antibody_SC27_8.95_1,136.4,20,True,no
+Lib-2,2023-06-16_thaw-2_no-antibody_control_1,123.7,20,True,no
