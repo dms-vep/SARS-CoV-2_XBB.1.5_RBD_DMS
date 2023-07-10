@@ -61,6 +61,16 @@ sera_default: &sera_default
 # define configuration for specific monoclonal antibodies, merging above defaults
 SC27:
  <<: *mAb_default
+20A7:
+ <<: *mAb_default
+25F9:
+ <<: *mAb_default
+27A12:
+ <<: *mAb_default
+A5:
+ <<: *mAb_default
+E8:
+ <<: *mAb_default
  
   
 # define configuration for specific sera, merging above defaults

@@ -48,6 +48,16 @@ Interactive plots of mutation functional effects
 
 Interactive plots of mutation antibody escape
 ---------------------------------------------
+- `20A7 escape plot <20A7_escape_plot.html>`_
+- `20A7 icXX plot <20A7_icXX_plot.html>`_
+- `25F9 escape plot <25F9_escape_plot.html>`_
+- `25F9 icXX plot <25F9_icXX_plot.html>`_
+- `27A12 escape plot <27A12_escape_plot.html>`_
+- `27A12 icXX plot <27A12_icXX_plot.html>`_
+- `A5 escape plot <A5_escape_plot.html>`_
+- `A5 icXX plot <A5_icXX_plot.html>`_
+- `E8 escape plot <E8_escape_plot.html>`_
+- `E8 icXX plot <E8_icXX_plot.html>`_
 - `SC27 escape plot <SC27_escape_plot.html>`_
 - `SC27 icXX plot <SC27_icXX_plot.html>`_
 
