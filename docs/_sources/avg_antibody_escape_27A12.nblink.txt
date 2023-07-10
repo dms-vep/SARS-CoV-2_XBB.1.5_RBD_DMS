@@ -1,0 +1,3 @@
+{
+    "path": "../notebooks/avg_antibody_escape_27A12.ipynb"
+}
