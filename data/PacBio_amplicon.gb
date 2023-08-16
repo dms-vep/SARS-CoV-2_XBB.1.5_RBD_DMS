@@ -1,17 +1,19 @@
-LOCUS       PacBio_amplicon                     3939 bp ds-DNA     linear   SYN 25-APR-2022
-DEFINITION  XBB15 spike virus amplicon after PCR from infection minipreps 
+LOCUS       PacBio_amplicon         3939 bp ds-DNA     linear       20-JUL-2023
+DEFINITION  XBB15 spike virus amplicon after PCR from infection minipreps with RBD as gene
 ACCESSION   PacBio_amplicon
 VERSION     .
 KEYWORDS    .
 SOURCE      PacBio_amplicon
   ORGANISM  virus_PCR
 FEATURES             Location/Qualifiers
-     termini5         1..47
-     variant_tag5     28
-     gene             48..3794
-     barcode          3852..3867
-     termini3         3868..3939
-     variant_tag3     3894
+     termini5        1..47
+     variant_tag5    28..28
+     spike_flank5    48..1025
+     gene            1026..1628
+     spike_flank3    1629..3794
+     barcode         3852..3867
+     termini3        3868..3939
+     variant_tag3    3894..3894
 ORIGIN
         1 ctagccattc agaggcagcc gagccacstc gctcaacgcg tgccaccatg tttgtgttcc
        61 tggtgctgct gccactggtg tccagccagt gtgtgaacct gatcaccagg acccaaagct
