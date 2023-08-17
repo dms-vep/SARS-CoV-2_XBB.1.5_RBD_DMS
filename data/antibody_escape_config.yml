@@ -300,6 +300,181 @@ antibody_selections:
       concentration: 21.531
       use_in_fit: true
 # --------------------------------------------------------------------------------------
+  Lib1-230815-sera-343C_mediumACE2:
+    neut_standard_name: neut_standard
+    prob_escape_filters: *prob_escape_filters_default
+    polyclonal_params: *polyclonal_params_default
+    escape_plot_kwargs: *escape_plot_kwargs_default
+    plot_hide_stats: *plot_hide_stats_default
+    no_antibody_sample: Lib1-230815-no-antibody_control_mediumACE2
+    antibody_samples:
+     Lib1-230815-sera-343C_0.013_mediumACE2:
+      concentration: 0.013
+      use_in_fit: true
+     Lib1-230815-sera-343C_0.052_mediumACE2:
+      concentration: 0.052
+      use_in_fit: true
+     Lib1-230815-sera-343C_0.152_mediumACE2:
+      concentration: 0.152
+      use_in_fit: true
+  Lib2-230815-sera-343C_mediumACE2:
+    neut_standard_name: neut_standard
+    prob_escape_filters: *prob_escape_filters_default
+    polyclonal_params: *polyclonal_params_default
+    escape_plot_kwargs: *escape_plot_kwargs_default
+    plot_hide_stats: *plot_hide_stats_default
+    no_antibody_sample: Lib2-230815-no-antibody_control_mediumACE2
+    antibody_samples:
+     Lib2-230815-sera-343C_0.013_mediumACE2:
+      concentration: 0.013
+      use_in_fit: true
+     Lib2-230815-sera-343C_0.052_mediumACE2:
+      concentration: 0.052
+      use_in_fit: true
+     Lib2-230815-sera-343C_0.152_mediumACE2:
+      concentration: 0.152
+      use_in_fit: true
+# --------------------------------------------------------------------------------------
+  Lib1-230815-sera-493C_mediumACE2:
+    neut_standard_name: neut_standard
+    prob_escape_filters: *prob_escape_filters_default
+    polyclonal_params: *polyclonal_params_default
+    escape_plot_kwargs: *escape_plot_kwargs_default
+    plot_hide_stats: *plot_hide_stats_default
+    no_antibody_sample: Lib1-230815-no-antibody_control_mediumACE2
+    antibody_samples:
+     Lib1-230815-sera-493C_0.045_mediumACE2:
+      concentration: 0.045
+      use_in_fit: true
+     Lib1-230815-sera-493C_0.091_mediumACE2:
+      concentration: 0.091
+      use_in_fit: true
+     Lib1-230815-sera-493C_0.16_mediumACE2:
+      concentration: 0.16
+      use_in_fit: true
+  Lib2-230815-sera-493C_mediumACE2:
+    neut_standard_name: neut_standard
+    prob_escape_filters: *prob_escape_filters_default
+    polyclonal_params: *polyclonal_params_default
+    escape_plot_kwargs: *escape_plot_kwargs_default
+    plot_hide_stats: *plot_hide_stats_default
+    no_antibody_sample: Lib2-230815-no-antibody_control_mediumACE2
+    antibody_samples:
+     Lib2-230815-sera-493C_0.045_mediumACE2:
+      concentration: 0.045
+      use_in_fit: true
+     Lib2-230815-sera-493C_0.091_mediumACE2:
+      concentration: 0.091
+      use_in_fit: true
+     Lib2-230815-sera-493C_0.16_mediumACE2:
+      concentration: 0.16
+      use_in_fit: true
+# --------------------------------------------------------------------------------------
+  Lib1-230815-sera-498C_mediumACE2:
+    neut_standard_name: neut_standard
+    prob_escape_filters: *prob_escape_filters_default
+    polyclonal_params: *polyclonal_params_default
+    escape_plot_kwargs: *escape_plot_kwargs_default
+    plot_hide_stats: *plot_hide_stats_default
+    no_antibody_sample: Lib1-230815-no-antibody_control_mediumACE2
+    antibody_samples:
+     Lib1-230815-sera-498C_0.015_mediumACE2:
+      concentration: 0.015
+      use_in_fit: true
+     Lib1-230815-sera-498C_0.058_mediumACE2:
+      concentration: 0.058
+      use_in_fit: true
+     Lib1-230815-sera-498C_0.197_mediumACE2:
+      concentration: 0.197
+      use_in_fit: true
+  Lib2-230815-sera-498C_mediumACE2:
+    neut_standard_name: neut_standard
+    prob_escape_filters: *prob_escape_filters_default
+    polyclonal_params: *polyclonal_params_default
+    escape_plot_kwargs: *escape_plot_kwargs_default
+    plot_hide_stats: *plot_hide_stats_default
+    no_antibody_sample: Lib2-230815-no-antibody_control_mediumACE2
+    antibody_samples:
+     Lib2-230815-sera-498C_0.015_mediumACE2:
+      concentration: 0.015
+      use_in_fit: true
+     Lib2-230815-sera-498C_0.058_mediumACE2:
+      concentration: 0.058
+      use_in_fit: true
+     Lib2-230815-sera-498C_0.197_mediumACE2:
+      concentration: 0.197
+      use_in_fit: true
+# --------------------------------------------------------------------------------------
+  Lib1-230815-sera-500C_mediumACE2:
+    neut_standard_name: neut_standard
+    prob_escape_filters: *prob_escape_filters_default
+    polyclonal_params: *polyclonal_params_default
+    escape_plot_kwargs: *escape_plot_kwargs_default
+    plot_hide_stats: *plot_hide_stats_default
+    no_antibody_sample: Lib1-230815-no-antibody_control_mediumACE2
+    antibody_samples:
+     Lib1-230815-sera-500C_0.01_mediumACE2:
+      concentration: 0.01
+      use_in_fit: true
+     Lib1-230815-sera-500C_0.043_mediumACE2:
+      concentration: 0.043
+      use_in_fit: true
+     Lib1-230815-sera-500C_0.099_mediumACE2:
+      concentration: 0.099
+      use_in_fit: true
+  Lib2-230815-sera-500C_mediumACE2:
+    neut_standard_name: neut_standard
+    prob_escape_filters: *prob_escape_filters_default
+    polyclonal_params: *polyclonal_params_default
+    escape_plot_kwargs: *escape_plot_kwargs_default
+    plot_hide_stats: *plot_hide_stats_default
+    no_antibody_sample: Lib2-230815-no-antibody_control_mediumACE2
+    antibody_samples:
+     Lib2-230815-sera-500C_0.01_mediumACE2:
+      concentration: 0.01
+      use_in_fit: true
+     Lib2-230815-sera-500C_0.043_mediumACE2:
+      concentration: 0.043
+      use_in_fit: true
+     Lib2-230815-sera-500C_0.099_mediumACE2:
+      concentration: 0.099
+      use_in_fit: true
+# --------------------------------------------------------------------------------------
+  Lib1-230815-sera-503C_mediumACE2:
+    neut_standard_name: neut_standard
+    prob_escape_filters: *prob_escape_filters_default
+    polyclonal_params: *polyclonal_params_default
+    escape_plot_kwargs: *escape_plot_kwargs_default
+    plot_hide_stats: *plot_hide_stats_default
+    no_antibody_sample: Lib1-230815-no-antibody_control_mediumACE2
+    antibody_samples:
+     Lib1-230815-sera-503C_0.065_mediumACE2:
+      concentration: 0.065
+      use_in_fit: true
+     Lib1-230815-sera-503C_0.091_mediumACE2:
+      concentration: 0.091
+      use_in_fit: true
+     Lib1-230815-sera-503C_0.136_mediumACE2:
+      concentration: 0.136
+      use_in_fit: true
+  Lib2-230815-sera-503C_mediumACE2:
+    neut_standard_name: neut_standard
+    prob_escape_filters: *prob_escape_filters_default
+    polyclonal_params: *polyclonal_params_default
+    escape_plot_kwargs: *escape_plot_kwargs_default
+    plot_hide_stats: *plot_hide_stats_default
+    no_antibody_sample: Lib2-230815-no-antibody_control_mediumACE2
+    antibody_samples:
+     Lib2-230815-sera-503C_0.065_mediumACE2:
+      concentration: 0.065
+      use_in_fit: true
+     Lib2-230815-sera-503C_0.091_mediumACE2:
+      concentration: 0.091
+      use_in_fit: true
+     Lib2-230815-sera-503C_0.136_mediumACE2:
+      concentration: 0.136
+      use_in_fit: true
+# --------------------------------------------------------------------------------------
 
 
 # Note that for soluble receptor affinity selections, you define selection experiments
@@ -494,40 +669,41 @@ avg_antibody_escape:
     selections:
       - Lib1-230705-antibody_E8
       - Lib2-230705-antibody_E8
-  # sera_493C_mediumACE2:
-  #   <<: *avg_antibody_escape_default
-  #   title: Sera 493C escape in medium ACE2 cells
-  #   selections:
-  #     - Lib1-230805-sera-493C_mediumACE2
-  #     - Lib2-230805-sera-493C_mediumACE2
 
-  # sera_498C_mediumACE2:
-  #   <<: *avg_antibody_escape_default
-  #   title: Sera 498C escape in medium ACE2 cells
-  #   selections:
-  #     - Lib1-230805-sera-498C_mediumACE2
-  #     - Lib2-230805-sera-498C_mediumACE2
+  sera_493C_mediumACE2:
+    <<: *avg_antibody_escape_default
+    title: Sera 493C escape in medium ACE2 cells
+    selections:
+      - Lib1-230815-sera-493C_mediumACE2
+      - Lib2-230815-sera-493C_mediumACE2
 
-  # sera_500C_mediumACE2:
-  #   <<: *avg_antibody_escape_default
-  #   title: Sera 500C escape in medium ACE2 cells
-  #   selections:
-  #     - Lib1-230805-sera-500C_mediumACE2
-  #     - Lib2-230805-sera-500C_mediumACE2
+  sera_498C_mediumACE2:
+    <<: *avg_antibody_escape_default
+    title: Sera 498C escape in medium ACE2 cells
+    selections:
+      - Lib1-230815-sera-498C_mediumACE2
+      - Lib2-230815-sera-498C_mediumACE2
 
-  # sera_503C_mediumACE2:
-  #   <<: *avg_antibody_escape_default
-  #   title: Sera 503C escape in medium ACE2 cells
-  #   selections:
-  #     - Lib1-230805-sera-503C_mediumACE2
-  #     - Lib2-230805-sera-503C_mediumACE2
+  sera_500C_mediumACE2:
+    <<: *avg_antibody_escape_default
+    title: Sera 500C escape in medium ACE2 cells
+    selections:
+      - Lib1-230815-sera-500C_mediumACE2
+      - Lib2-230815-sera-500C_mediumACE2
 
-  # sera_343C_mediumACE2:
-  #   <<: *avg_antibody_escape_default
-  #   title: Sera 343C escape in medium ACE2 cells
-  #   selections:
-  #     - Lib1-230815-sera-343C_mediumACE2
-  #     - Lib2-230815-sera-343C_mediumACE2
+  sera_503C_mediumACE2:
+    <<: *avg_antibody_escape_default
+    title: Sera 503C escape in medium ACE2 cells
+    selections:
+      - Lib1-230815-sera-503C_mediumACE2
+      - Lib2-230815-sera-503C_mediumACE2
+
+  sera_343C_mediumACE2:
+    <<: *avg_antibody_escape_default
+    title: Sera 343C escape in medium ACE2 cells
+    selections:
+      - Lib1-230815-sera-343C_mediumACE2
+      - Lib2-230815-sera-343C_mediumACE2
 
 # Define the receptor affinity experiments to average
 avg_receptor_affinity_default: &avg_receptor_affinity_default
