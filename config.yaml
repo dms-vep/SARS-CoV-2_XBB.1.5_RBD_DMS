@@ -21,7 +21,7 @@ github_repo_url: https://github.com/dms-vep/SARS-CoV-2_XBB.1.5_RBD_DMS
 # and should not be needed for other pipelines.
 github_blob_url: https://github.com/dms-vep/SARS-CoV-2_XBB.1.5_RBD_DMS/blob/main
 # Some descriptions and metadata about the analysis.
-description: Deep mutational scanning of SARS-CoV-2 XBB.1.5 RBD for measuring ACE2 affinity
+description: Deep mutational scanning of the SARS-CoV-2 XBB.1.5 RBD using a barcoded lentiviral platform
 year: 2023
 authors: Bernadeta Dadonaite and Jesse Bloom
 
