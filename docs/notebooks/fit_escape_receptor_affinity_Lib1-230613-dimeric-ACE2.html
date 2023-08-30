@@ -7442,8 +7442,8 @@ a.anchor-link {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h1 id="Fit-polyclonal-model-to-escape-from-antibody/serum-or-affinity-soluble-receptor">Fit <code>polyclonal</code> model to escape from antibody/serum or affinity soluble receptor<a class="anchor-link" href="#Fit-polyclonal-model-to-escape-from-antibody/serum-or-affinity-soluble-receptor">¶</a></h1><p>In the notebook below, "antibody" is used as a synonym for any of antibody, serum, or soluble receptor.
-However, the plotting is done somewhat differently if we are trying to use escape from antibody/serum, or estimate how mutations affect the affinity by looking at their impact on inhibition by soluble receptor.</p>
+<h1 id="Fit-polyclonal-model-to-escape-in-an-assay-(eg,-antibody-selection)">Fit <code>polyclonal</code> model to escape in an assay (eg, antibody selection)<a class="anchor-link" href="#Fit-polyclonal-model-to-escape-in-an-assay-(eg,-antibody-selection)">¶</a></h1><p>In the notebook below, "antibody" is used as a synonym for any agent that will neutralize the viral infectivity.
+However, the plotting is done somewhat differently depending on the assay.</p>
 <p>Import Python modules.</p>
 </div>
 </div>
@@ -7494,6 +7494,7 @@ The next cell is tagged as <code>parameters</code> to get the passed parameters.
 <span class="n">params</span> <span class="o">=</span> <span class="kc">None</span>
 <span class="n">neut_standard_frac_csvs</span> <span class="o">=</span> <span class="kc">None</span>
 <span class="n">prob_escape_csvs</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="n">assay_config</span> <span class="o">=</span> <span class="kc">None</span>
 <span class="n">prob_escape_mean_csv</span> <span class="o">=</span> <span class="kc">None</span>
 <span class="n">site_numbering_map_csv</span> <span class="o">=</span> <span class="kc">None</span>
 <span class="n">pickle_file</span> <span class="o">=</span> <span class="kc">None</span>
@@ -7502,7 +7503,7 @@ The next cell is tagged as <code>parameters</code> to get the passed parameters.
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs celltag_injected-parameters" id="cell-id=7645d9aa">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs celltag_injected-parameters" id="cell-id=95ccac3e">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -7591,6 +7592,14 @@ The next cell is tagged as <code>parameters</code> to get the passed parameters.
     <span class="s2">"results/receptor_affinity/by_selection/Lib1-230613-dimeric-ACE2/Lib1-230613-antibody-dimeric-ACE2-5.67_prob_escape.csv"</span><span class="p">,</span>
     <span class="s2">"results/receptor_affinity/by_selection/Lib1-230613-dimeric-ACE2/Lib1-230613-antibody-dimeric-ACE2-17.01_prob_escape.csv"</span><span class="p">,</span>
 <span class="p">]</span>
+<span class="n">assay_config</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">"title"</span><span class="p">:</span> <span class="s2">"Receptor affinity"</span><span class="p">,</span>
+    <span class="s2">"selections"</span><span class="p">:</span> <span class="s2">"receptor_selections"</span><span class="p">,</span>
+    <span class="s2">"averages"</span><span class="p">:</span> <span class="s2">"avg_receptor_affinity"</span><span class="p">,</span>
+    <span class="s2">"prob_escape_scale"</span><span class="p">:</span> <span class="p">{</span><span class="s2">"type"</span><span class="p">:</span> <span class="s2">"linear"</span><span class="p">},</span>
+    <span class="s2">"scale_stat"</span><span class="p">:</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span>
+    <span class="s2">"stat_name"</span><span class="p">:</span> <span class="s2">"receptor affinity"</span><span class="p">,</span>
+<span class="p">}</span>
 <span class="n">site_numbering_map_csv</span> <span class="o">=</span> <span class="s2">"data/site_numbering_map.csv"</span>
 <span class="n">prob_escape_mean_csv</span> <span class="o">=</span> <span class="s2">"results/receptor_affinity/by_selection/Lib1-230613-dimeric-ACE2_prob_escape_mean.csv"</span>
 <span class="n">pickle_file</span> <span class="o">=</span> <span class="s2">"results/receptor_affinity/by_selection/Lib1-230613-dimeric-ACE2_polyclonal_model.pickle"</span>
@@ -7836,23 +7845,23 @@ The next cell is tagged as <code>parameters</code> to get the passed parameters.
 <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[9]:</div>
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
 <style>
-  #altair-viz-e18b376fe19941799e4438dd1e983e92.vega-embed {
+  #altair-viz-78319b9f4af34237b9911ff22becfd14.vega-embed {
     width: 100%;
     display: flex;
   }
 
-  #altair-viz-e18b376fe19941799e4438dd1e983e92.vega-embed details,
-  #altair-viz-e18b376fe19941799e4438dd1e983e92.vega-embed details summary {
+  #altair-viz-78319b9f4af34237b9911ff22becfd14.vega-embed details,
+  #altair-viz-78319b9f4af34237b9911ff22becfd14.vega-embed details summary {
     position: relative;
   }
 </style>
-<div id="altair-viz-e18b376fe19941799e4438dd1e983e92"></div>
+<div id="altair-viz-78319b9f4af34237b9911ff22becfd14"></div>
 <script type="text/javascript">
   var VEGA_DEBUG = (typeof VEGA_DEBUG == "undefined") ? {} : VEGA_DEBUG;
   (function(spec, embedOpt){
     let outputDiv = document.currentScript.previousElementSibling;
-    if (outputDiv.id !== "altair-viz-e18b376fe19941799e4438dd1e983e92") {
-      outputDiv = document.getElementById("altair-viz-e18b376fe19941799e4438dd1e983e92");
+    if (outputDiv.id !== "altair-viz-78319b9f4af34237b9911ff22becfd14") {
+      outputDiv = document.getElementById("altair-viz-78319b9f4af34237b9911ff22becfd14");
     }
     const paths = {
       "vega": "https://cdn.jsdelivr.net/npm/vega@5?noext",
@@ -8165,23 +8174,23 @@ Recall we keep variants that meet <strong>either</strong> threshold, and in an i
 <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[12]:</div>
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
 <style>
-  #altair-viz-0ca6b1d3cea74eb79dbf9137d95661d6.vega-embed {
+  #altair-viz-b35f020719f54cbdb2e974be783e5015.vega-embed {
     width: 100%;
     display: flex;
   }
 
-  #altair-viz-0ca6b1d3cea74eb79dbf9137d95661d6.vega-embed details,
-  #altair-viz-0ca6b1d3cea74eb79dbf9137d95661d6.vega-embed details summary {
+  #altair-viz-b35f020719f54cbdb2e974be783e5015.vega-embed details,
+  #altair-viz-b35f020719f54cbdb2e974be783e5015.vega-embed details summary {
     position: relative;
   }
 </style>
-<div id="altair-viz-0ca6b1d3cea74eb79dbf9137d95661d6"></div>
+<div id="altair-viz-b35f020719f54cbdb2e974be783e5015"></div>
 <script type="text/javascript">
   var VEGA_DEBUG = (typeof VEGA_DEBUG == "undefined") ? {} : VEGA_DEBUG;
   (function(spec, embedOpt){
     let outputDiv = document.currentScript.previousElementSibling;
-    if (outputDiv.id !== "altair-viz-0ca6b1d3cea74eb79dbf9137d95661d6") {
-      outputDiv = document.getElementById("altair-viz-0ca6b1d3cea74eb79dbf9137d95661d6");
+    if (outputDiv.id !== "altair-viz-b35f020719f54cbdb2e974be783e5015") {
+      outputDiv = document.getElementById("altair-viz-b35f020719f54cbdb2e974be783e5015");
     }
     const paths = {
       "vega": "https://cdn.jsdelivr.net/npm/vega@5?noext",
@@ -8356,23 +8365,23 @@ We typically retain a higher fraction of barcode counts than variants, since the
 <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[14]:</div>
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
 <style>
-  #altair-viz-ea62235ac0f14b9cbeef182466c23e99.vega-embed {
+  #altair-viz-8674b339c9f64237ad562531346c7a08.vega-embed {
     width: 100%;
     display: flex;
   }
 
-  #altair-viz-ea62235ac0f14b9cbeef182466c23e99.vega-embed details,
-  #altair-viz-ea62235ac0f14b9cbeef182466c23e99.vega-embed details summary {
+  #altair-viz-8674b339c9f64237ad562531346c7a08.vega-embed details,
+  #altair-viz-8674b339c9f64237ad562531346c7a08.vega-embed details summary {
     position: relative;
   }
 </style>
-<div id="altair-viz-ea62235ac0f14b9cbeef182466c23e99"></div>
+<div id="altair-viz-8674b339c9f64237ad562531346c7a08"></div>
 <script type="text/javascript">
   var VEGA_DEBUG = (typeof VEGA_DEBUG == "undefined") ? {} : VEGA_DEBUG;
   (function(spec, embedOpt){
     let outputDiv = document.currentScript.previousElementSibling;
-    if (outputDiv.id !== "altair-viz-ea62235ac0f14b9cbeef182466c23e99") {
-      outputDiv = document.getElementById("altair-viz-ea62235ac0f14b9cbeef182466c23e99");
+    if (outputDiv.id !== "altair-viz-8674b339c9f64237ad562531346c7a08") {
+      outputDiv = document.getElementById("altair-viz-8674b339c9f64237ad562531346c7a08");
     }
     const paths = {
       "vega": "https://cdn.jsdelivr.net/npm/vega@5?noext",
@@ -8595,11 +8604,7 @@ Mouseover points for details.</p>
         <span class="n">x</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s2">"concentration"</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Scale</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s2">"log"</span><span class="p">)),</span>
         <span class="n">y</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span>
             <span class="s2">"probability escape"</span><span class="p">,</span>
-            <span class="n">scale</span><span class="o">=</span><span class="p">(</span>
-                <span class="n">alt</span><span class="o">.</span><span class="n">Scale</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s2">"symlog"</span><span class="p">,</span> <span class="n">constant</span><span class="o">=</span><span class="mf">0.04</span><span class="p">)</span>
-                <span class="k">if</span> <span class="n">assay</span> <span class="o">==</span> <span class="s2">"antibody_escape"</span>
-                <span class="k">else</span> <span class="n">alt</span><span class="o">.</span><span class="n">Scale</span><span class="p">()</span>
-            <span class="p">),</span>
+            <span class="n">scale</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Scale</span><span class="p">(</span><span class="o">**</span><span class="n">assay_config</span><span class="p">[</span><span class="s2">"prob_escape_scale"</span><span class="p">]),</span>
         <span class="p">),</span>
         <span class="n">column</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span>
             <span class="s2">"censored"</span><span class="p">,</span>
@@ -8640,23 +8645,23 @@ Mouseover points for details.</p>
 <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[16]:</div>
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
 <style>
-  #altair-viz-3db35057556e4c3a909ee5541b0977c3.vega-embed {
+  #altair-viz-8a91b3c78b614c8a8e329e4cd581f5ff.vega-embed {
     width: 100%;
     display: flex;
   }
 
-  #altair-viz-3db35057556e4c3a909ee5541b0977c3.vega-embed details,
-  #altair-viz-3db35057556e4c3a909ee5541b0977c3.vega-embed details summary {
+  #altair-viz-8a91b3c78b614c8a8e329e4cd581f5ff.vega-embed details,
+  #altair-viz-8a91b3c78b614c8a8e329e4cd581f5ff.vega-embed details summary {
     position: relative;
   }
 </style>
-<div id="altair-viz-3db35057556e4c3a909ee5541b0977c3"></div>
+<div id="altair-viz-8a91b3c78b614c8a8e329e4cd581f5ff"></div>
 <script type="text/javascript">
   var VEGA_DEBUG = (typeof VEGA_DEBUG == "undefined") ? {} : VEGA_DEBUG;
   (function(spec, embedOpt){
     let outputDiv = document.currentScript.previousElementSibling;
-    if (outputDiv.id !== "altair-viz-3db35057556e4c3a909ee5541b0977c3") {
-      outputDiv = document.getElementById("altair-viz-3db35057556e4c3a909ee5541b0977c3");
+    if (outputDiv.id !== "altair-viz-8a91b3c78b614c8a8e329e4cd581f5ff") {
+      outputDiv = document.getElementById("altair-viz-8a91b3c78b614c8a8e329e4cd581f5ff");
     }
     const paths = {
       "vega": "https://cdn.jsdelivr.net/npm/vega@5?noext",
@@ -8702,7 +8707,7 @@ Mouseover points for details.</p>
         .catch(showError)
         .then(() => displayChart(vegaEmbed));
     }
-  })({"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}, "axis": {"grid": false}, "point": {"size": 50}}, "data": {"name": "data-62cb97afe1eba07d5243f0fefe8ce76a"}, "mark": {"type": "line", "opacity": 0.8, "point": true, "size": 0.75}, "encoding": {"color": {"field": "n_substitutions", "type": "nominal"}, "column": {"field": "censored", "header": {"labelFontSize": 12, "labelFontWeight": "bold"}, "title": null, "type": "nominal"}, "shape": {"field": "use_in_fit", "scale": {"domain": [true, false]}, "type": "nominal"}, "tooltip": [{"field": "sample", "type": "nominal"}, {"field": "concentration", "type": "quantitative"}, {"field": "use_in_fit", "type": "nominal"}, {"field": "n_substitutions", "type": "nominal"}, {"field": "n_variants", "type": "quantitative"}, {"field": "censored", "type": "nominal"}, {"field": "probability escape", "format": ".3g", "type": "quantitative"}], "x": {"field": "concentration", "scale": {"type": "log"}, "type": "quantitative"}, "y": {"field": "probability escape", "scale": {}, "type": "quantitative"}}, "height": 140, "width": 220, "$schema": "https://vega.github.io/schema/vega-lite/v5.8.0.json", "datasets": {"data-62cb97afe1eba07d5243f0fefe8ce76a": [{"sample": "Lib1-230613-antibody-dimeric-ACE2-0.21", "concentration": 0.21, "use_in_fit": true, "n_substitutions": "0", "n_variants": 10537, "censored": "censored to [0, 1]", "probability escape": 0.7174612603207744}, {"sample": "Lib1-230613-antibody-dimeric-ACE2-0.21", "concentration": 0.21, "use_in_fit": true, "n_substitutions": "1", "n_variants": 13106, "censored": "censored to [0, 1]", "probability escape": 0.6868601480238059}, {"sample": "Lib1-230613-antibody-dimeric-ACE2-0.21", "concentration": 0.21, "use_in_fit": true, "n_substitutions": "2", "n_variants": 9864, "censored": "censored to [0, 1]", "probability escape": 0.651451601784266}, {"sample": "Lib1-230613-antibody-dimeric-ACE2-0.21", "concentration": 0.21, "use_in_fit": true, "n_substitutions": ">2", "n_variants": 6658, "censored": "censored to [0, 1]", "probability escape": 0.5706543106037849}, {"sample": "Lib1-230613-antibody-dimeric-ACE2-0.63", "concentration": 0.63, "use_in_fit": true, "n_substitutions": "0", "n_variants": 10537, "censored": "censored to [0, 1]", "probability escape": 0.4438451836386068}, {"sample": "Lib1-230613-antibody-dimeric-ACE2-0.63", "concentration": 0.63, "use_in_fit": true, "n_substitutions": "1", "n_variants": 13106, "censored": "censored to [0, 1]", "probability escape": 0.44980131237601095}, {"sample": "Lib1-230613-antibody-dimeric-ACE2-0.63", "concentration": 0.63, "use_in_fit": true, "n_substitutions": "2", "n_variants": 9864, "censored": "censored to [0, 1]", "probability escape": 0.464744099756691}, {"sample": "Lib1-230613-antibody-dimeric-ACE2-0.63", "concentration": 0.63, "use_in_fit": true, "n_substitutions": ">2", "n_variants": 6658, "censored": "censored to [0, 1]", "probability escape": 0.46380854610994293}, {"sample": "Lib1-230613-antibody-dimeric-ACE2-1.89", "concentration": 1.89, "use_in_fit": true, "n_substitutions": "0", "n_variants": 10537, "censored": "censored to [0, 1]", "probability escape": 0.1864414064724305}, {"sample": "Lib1-230613-antibody-dimeric-ACE2-1.89", "concentration": 1.89, "use_in_fit": true, "n_substitutions": "1", "n_variants": 13106, "censored": "censored to [0, 1]", "probability escape": 0.23585892720891197}, {"sample": "Lib1-230613-antibody-dimeric-ACE2-1.89", "concentration": 1.89, "use_in_fit": true, "n_substitutions": "2", "n_variants": 9864, "censored": "censored to [0, 1]", "probability escape": 0.3101344586374696}, {"sample": "Lib1-230613-antibody-dimeric-ACE2-1.89", "concentration": 1.89, "use_in_fit": true, "n_substitutions": ">2", "n_variants": 6659, "censored": "censored to [0, 1]", "probability escape": 0.3625499174050158}, {"sample": "Lib1-230613-antibody-dimeric-ACE2-17.01", "concentration": 17.01, "use_in_fit": true, "n_substitutions": "0", "n_variants": 10541, "censored": "censored to [0, 1]", "probability escape": 0.046516573380134714}, {"sample": "Lib1-230613-antibody-dimeric-ACE2-17.01", "concentration": 17.01, "use_in_fit": true, "n_substitutions": "1", "n_variants": 13106, "censored": "censored to [0, 1]", "probability escape": 0.06856199450633298}, {"sample": "Lib1-230613-antibody-dimeric-ACE2-17.01", "concentration": 17.01, "use_in_fit": true, "n_substitutions": "2", "n_variants": 9869, "censored": "censored to [0, 1]", "probability escape": 0.12813687303678184}, {"sample": "Lib1-230613-antibody-dimeric-ACE2-17.01", "concentration": 17.01, "use_in_fit": true, "n_substitutions": ">2", "n_variants": 6661, "censored": "censored to [0, 1]", "probability escape": 0.18307483861282087}, {"sample": "Lib1-230613-antibody-dimeric-ACE2-5.67", "concentration": 5.67, "use_in_fit": true, "n_substitutions": "0", "n_variants": 10538, "censored": "censored to [0, 1]", "probability escape": 0.06610759157335358}, {"sample": "Lib1-230613-antibody-dimeric-ACE2-5.67", "concentration": 5.67, "use_in_fit": true, "n_substitutions": "1", "n_variants": 13106, "censored": "censored to [0, 1]", "probability escape": 0.10959513200061041}, {"sample": "Lib1-230613-antibody-dimeric-ACE2-5.67", "concentration": 5.67, "use_in_fit": true, "n_substitutions": "2", "n_variants": 9864, "censored": "censored to [0, 1]", "probability escape": 0.17606412206001623}, {"sample": "Lib1-230613-antibody-dimeric-ACE2-5.67", "concentration": 5.67, "use_in_fit": true, "n_substitutions": ">2", "n_variants": 6658, "censored": "censored to [0, 1]", "probability escape": 0.2284232502252929}, {"sample": "Lib1-230613-antibody-dimeric-ACE2-0.21", "concentration": 0.21, "use_in_fit": true, "n_substitutions": "0", "n_variants": 10537, "censored": "not censored", "probability escape": 0.8273316883363385}, {"sample": "Lib1-230613-antibody-dimeric-ACE2-0.21", "concentration": 0.21, "use_in_fit": true, "n_substitutions": "1", "n_variants": 13106, "censored": "not censored", "probability escape": 0.8075518007019685}, {"sample": "Lib1-230613-antibody-dimeric-ACE2-0.21", "concentration": 0.21, "use_in_fit": true, "n_substitutions": "2", "n_variants": 9864, "censored": "not censored", "probability escape": 0.7766780109489051}, {"sample": "Lib1-230613-antibody-dimeric-ACE2-0.21", "concentration": 0.21, "use_in_fit": true, "n_substitutions": ">2", "n_variants": 6658, "censored": "not censored", "probability escape": 0.7004805947732051}, {"sample": "Lib1-230613-antibody-dimeric-ACE2-0.63", "concentration": 0.63, "use_in_fit": true, "n_substitutions": "0", "n_variants": 10537, "censored": "not censored", "probability escape": 0.4863595710353991}, {"sample": "Lib1-230613-antibody-dimeric-ACE2-0.63", "concentration": 0.63, "use_in_fit": true, "n_substitutions": "1", "n_variants": 13106, "censored": "not censored", "probability escape": 0.5025833816572562}, {"sample": "Lib1-230613-antibody-dimeric-ACE2-0.63", "concentration": 0.63, "use_in_fit": true, "n_substitutions": "2", "n_variants": 9864, "censored": "not censored", "probability escape": 0.5495163828061639}, {"sample": "Lib1-230613-antibody-dimeric-ACE2-0.63", "concentration": 0.63, "use_in_fit": true, "n_substitutions": ">2", "n_variants": 6658, "censored": "not censored", "probability escape": 0.58534274556924}, {"sample": "Lib1-230613-antibody-dimeric-ACE2-1.89", "concentration": 1.89, "use_in_fit": true, "n_substitutions": "0", "n_variants": 10537, "censored": "not censored", "probability escape": 0.21329975325045078}, {"sample": "Lib1-230613-antibody-dimeric-ACE2-1.89", "concentration": 1.89, "use_in_fit": true, "n_substitutions": "1", "n_variants": 13106, "censored": "not censored", "probability escape": 0.2676022585075538}, {"sample": "Lib1-230613-antibody-dimeric-ACE2-1.89", "concentration": 1.89, "use_in_fit": true, "n_substitutions": "2", "n_variants": 9864, "censored": "not censored", "probability escape": 0.37966632197891326}, {"sample": "Lib1-230613-antibody-dimeric-ACE2-1.89", "concentration": 1.89, "use_in_fit": true, "n_substitutions": ">2", "n_variants": 6659, "censored": "not censored", "probability escape": 0.486374305451269}, {"sample": "Lib1-230613-antibody-dimeric-ACE2-17.01", "concentration": 17.01, "use_in_fit": true, "n_substitutions": "0", "n_variants": 10541, "censored": "not censored", "probability escape": 0.05117705151313917}, {"sample": "Lib1-230613-antibody-dimeric-ACE2-17.01", "concentration": 17.01, "use_in_fit": true, "n_substitutions": "1", "n_variants": 13106, "censored": "not censored", "probability escape": 0.07236425301388677}, {"sample": "Lib1-230613-antibody-dimeric-ACE2-17.01", "concentration": 17.01, "use_in_fit": true, "n_substitutions": "2", "n_variants": 9869, "censored": "not censored", "probability escape": 0.14259285641909009}, {"sample": "Lib1-230613-antibody-dimeric-ACE2-17.01", "concentration": 17.01, "use_in_fit": true, "n_substitutions": ">2", "n_variants": 6661, "censored": "not censored", "probability escape": 0.20408812490617026}, {"sample": "Lib1-230613-antibody-dimeric-ACE2-5.67", "concentration": 5.67, "use_in_fit": true, "n_substitutions": "0", "n_variants": 10538, "censored": "not censored", "probability escape": 0.07054398367811729}, {"sample": "Lib1-230613-antibody-dimeric-ACE2-5.67", "concentration": 5.67, "use_in_fit": true, "n_substitutions": "1", "n_variants": 13106, "censored": "not censored", "probability escape": 0.11621397833053564}, {"sample": "Lib1-230613-antibody-dimeric-ACE2-5.67", "concentration": 5.67, "use_in_fit": true, "n_substitutions": "2", "n_variants": 9864, "censored": "not censored", "probability escape": 0.18927111719383616}, {"sample": "Lib1-230613-antibody-dimeric-ACE2-5.67", "concentration": 5.67, "use_in_fit": true, "n_substitutions": ">2", "n_variants": 6658, "censored": "not censored", "probability escape": 0.25398151096425353}]}}, {"mode": "vega-lite"});
+  })({"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}, "axis": {"grid": false}, "point": {"size": 50}}, "data": {"name": "data-62cb97afe1eba07d5243f0fefe8ce76a"}, "mark": {"type": "line", "opacity": 0.8, "point": true, "size": 0.75}, "encoding": {"color": {"field": "n_substitutions", "type": "nominal"}, "column": {"field": "censored", "header": {"labelFontSize": 12, "labelFontWeight": "bold"}, "title": null, "type": "nominal"}, "shape": {"field": "use_in_fit", "scale": {"domain": [true, false]}, "type": "nominal"}, "tooltip": [{"field": "sample", "type": "nominal"}, {"field": "concentration", "type": "quantitative"}, {"field": "use_in_fit", "type": "nominal"}, {"field": "n_substitutions", "type": "nominal"}, {"field": "n_variants", "type": "quantitative"}, {"field": "censored", "type": "nominal"}, {"field": "probability escape", "format": ".3g", "type": "quantitative"}], "x": {"field": "concentration", "scale": {"type": "log"}, "type": "quantitative"}, "y": {"field": "probability escape", "scale": {"type": "linear"}, "type": "quantitative"}}, "height": 140, "width": 220, "$schema": "https://vega.github.io/schema/vega-lite/v5.8.0.json", "datasets": {"data-62cb97afe1eba07d5243f0fefe8ce76a": [{"sample": "Lib1-230613-antibody-dimeric-ACE2-0.21", "concentration": 0.21, "use_in_fit": true, "n_substitutions": "0", "n_variants": 10537, "censored": "censored to [0, 1]", "probability escape": 0.7174612603207744}, {"sample": "Lib1-230613-antibody-dimeric-ACE2-0.21", "concentration": 0.21, "use_in_fit": true, "n_substitutions": "1", "n_variants": 13106, "censored": "censored to [0, 1]", "probability escape": 0.6868601480238059}, {"sample": "Lib1-230613-antibody-dimeric-ACE2-0.21", "concentration": 0.21, "use_in_fit": true, "n_substitutions": "2", "n_variants": 9864, "censored": "censored to [0, 1]", "probability escape": 0.651451601784266}, {"sample": "Lib1-230613-antibody-dimeric-ACE2-0.21", "concentration": 0.21, "use_in_fit": true, "n_substitutions": ">2", "n_variants": 6658, "censored": "censored to [0, 1]", "probability escape": 0.5706543106037849}, {"sample": "Lib1-230613-antibody-dimeric-ACE2-0.63", "concentration": 0.63, "use_in_fit": true, "n_substitutions": "0", "n_variants": 10537, "censored": "censored to [0, 1]", "probability escape": 0.4438451836386068}, {"sample": "Lib1-230613-antibody-dimeric-ACE2-0.63", "concentration": 0.63, "use_in_fit": true, "n_substitutions": "1", "n_variants": 13106, "censored": "censored to [0, 1]", "probability escape": 0.44980131237601095}, {"sample": "Lib1-230613-antibody-dimeric-ACE2-0.63", "concentration": 0.63, "use_in_fit": true, "n_substitutions": "2", "n_variants": 9864, "censored": "censored to [0, 1]", "probability escape": 0.464744099756691}, {"sample": "Lib1-230613-antibody-dimeric-ACE2-0.63", "concentration": 0.63, "use_in_fit": true, "n_substitutions": ">2", "n_variants": 6658, "censored": "censored to [0, 1]", "probability escape": 0.46380854610994293}, {"sample": "Lib1-230613-antibody-dimeric-ACE2-1.89", "concentration": 1.89, "use_in_fit": true, "n_substitutions": "0", "n_variants": 10537, "censored": "censored to [0, 1]", "probability escape": 0.1864414064724305}, {"sample": "Lib1-230613-antibody-dimeric-ACE2-1.89", "concentration": 1.89, "use_in_fit": true, "n_substitutions": "1", "n_variants": 13106, "censored": "censored to [0, 1]", "probability escape": 0.23585892720891197}, {"sample": "Lib1-230613-antibody-dimeric-ACE2-1.89", "concentration": 1.89, "use_in_fit": true, "n_substitutions": "2", "n_variants": 9864, "censored": "censored to [0, 1]", "probability escape": 0.3101344586374696}, {"sample": "Lib1-230613-antibody-dimeric-ACE2-1.89", "concentration": 1.89, "use_in_fit": true, "n_substitutions": ">2", "n_variants": 6659, "censored": "censored to [0, 1]", "probability escape": 0.3625499174050158}, {"sample": "Lib1-230613-antibody-dimeric-ACE2-17.01", "concentration": 17.01, "use_in_fit": true, "n_substitutions": "0", "n_variants": 10541, "censored": "censored to [0, 1]", "probability escape": 0.046516573380134714}, {"sample": "Lib1-230613-antibody-dimeric-ACE2-17.01", "concentration": 17.01, "use_in_fit": true, "n_substitutions": "1", "n_variants": 13106, "censored": "censored to [0, 1]", "probability escape": 0.06856199450633298}, {"sample": "Lib1-230613-antibody-dimeric-ACE2-17.01", "concentration": 17.01, "use_in_fit": true, "n_substitutions": "2", "n_variants": 9869, "censored": "censored to [0, 1]", "probability escape": 0.12813687303678184}, {"sample": "Lib1-230613-antibody-dimeric-ACE2-17.01", "concentration": 17.01, "use_in_fit": true, "n_substitutions": ">2", "n_variants": 6661, "censored": "censored to [0, 1]", "probability escape": 0.18307483861282087}, {"sample": "Lib1-230613-antibody-dimeric-ACE2-5.67", "concentration": 5.67, "use_in_fit": true, "n_substitutions": "0", "n_variants": 10538, "censored": "censored to [0, 1]", "probability escape": 0.06610759157335358}, {"sample": "Lib1-230613-antibody-dimeric-ACE2-5.67", "concentration": 5.67, "use_in_fit": true, "n_substitutions": "1", "n_variants": 13106, "censored": "censored to [0, 1]", "probability escape": 0.10959513200061041}, {"sample": "Lib1-230613-antibody-dimeric-ACE2-5.67", "concentration": 5.67, "use_in_fit": true, "n_substitutions": "2", "n_variants": 9864, "censored": "censored to [0, 1]", "probability escape": 0.17606412206001623}, {"sample": "Lib1-230613-antibody-dimeric-ACE2-5.67", "concentration": 5.67, "use_in_fit": true, "n_substitutions": ">2", "n_variants": 6658, "censored": "censored to [0, 1]", "probability escape": 0.2284232502252929}, {"sample": "Lib1-230613-antibody-dimeric-ACE2-0.21", "concentration": 0.21, "use_in_fit": true, "n_substitutions": "0", "n_variants": 10537, "censored": "not censored", "probability escape": 0.8273316883363385}, {"sample": "Lib1-230613-antibody-dimeric-ACE2-0.21", "concentration": 0.21, "use_in_fit": true, "n_substitutions": "1", "n_variants": 13106, "censored": "not censored", "probability escape": 0.8075518007019685}, {"sample": "Lib1-230613-antibody-dimeric-ACE2-0.21", "concentration": 0.21, "use_in_fit": true, "n_substitutions": "2", "n_variants": 9864, "censored": "not censored", "probability escape": 0.7766780109489051}, {"sample": "Lib1-230613-antibody-dimeric-ACE2-0.21", "concentration": 0.21, "use_in_fit": true, "n_substitutions": ">2", "n_variants": 6658, "censored": "not censored", "probability escape": 0.7004805947732051}, {"sample": "Lib1-230613-antibody-dimeric-ACE2-0.63", "concentration": 0.63, "use_in_fit": true, "n_substitutions": "0", "n_variants": 10537, "censored": "not censored", "probability escape": 0.4863595710353991}, {"sample": "Lib1-230613-antibody-dimeric-ACE2-0.63", "concentration": 0.63, "use_in_fit": true, "n_substitutions": "1", "n_variants": 13106, "censored": "not censored", "probability escape": 0.5025833816572562}, {"sample": "Lib1-230613-antibody-dimeric-ACE2-0.63", "concentration": 0.63, "use_in_fit": true, "n_substitutions": "2", "n_variants": 9864, "censored": "not censored", "probability escape": 0.5495163828061639}, {"sample": "Lib1-230613-antibody-dimeric-ACE2-0.63", "concentration": 0.63, "use_in_fit": true, "n_substitutions": ">2", "n_variants": 6658, "censored": "not censored", "probability escape": 0.58534274556924}, {"sample": "Lib1-230613-antibody-dimeric-ACE2-1.89", "concentration": 1.89, "use_in_fit": true, "n_substitutions": "0", "n_variants": 10537, "censored": "not censored", "probability escape": 0.21329975325045078}, {"sample": "Lib1-230613-antibody-dimeric-ACE2-1.89", "concentration": 1.89, "use_in_fit": true, "n_substitutions": "1", "n_variants": 13106, "censored": "not censored", "probability escape": 0.2676022585075538}, {"sample": "Lib1-230613-antibody-dimeric-ACE2-1.89", "concentration": 1.89, "use_in_fit": true, "n_substitutions": "2", "n_variants": 9864, "censored": "not censored", "probability escape": 0.37966632197891326}, {"sample": "Lib1-230613-antibody-dimeric-ACE2-1.89", "concentration": 1.89, "use_in_fit": true, "n_substitutions": ">2", "n_variants": 6659, "censored": "not censored", "probability escape": 0.486374305451269}, {"sample": "Lib1-230613-antibody-dimeric-ACE2-17.01", "concentration": 17.01, "use_in_fit": true, "n_substitutions": "0", "n_variants": 10541, "censored": "not censored", "probability escape": 0.05117705151313917}, {"sample": "Lib1-230613-antibody-dimeric-ACE2-17.01", "concentration": 17.01, "use_in_fit": true, "n_substitutions": "1", "n_variants": 13106, "censored": "not censored", "probability escape": 0.07236425301388677}, {"sample": "Lib1-230613-antibody-dimeric-ACE2-17.01", "concentration": 17.01, "use_in_fit": true, "n_substitutions": "2", "n_variants": 9869, "censored": "not censored", "probability escape": 0.14259285641909009}, {"sample": "Lib1-230613-antibody-dimeric-ACE2-17.01", "concentration": 17.01, "use_in_fit": true, "n_substitutions": ">2", "n_variants": 6661, "censored": "not censored", "probability escape": 0.20408812490617026}, {"sample": "Lib1-230613-antibody-dimeric-ACE2-5.67", "concentration": 5.67, "use_in_fit": true, "n_substitutions": "0", "n_variants": 10538, "censored": "not censored", "probability escape": 0.07054398367811729}, {"sample": "Lib1-230613-antibody-dimeric-ACE2-5.67", "concentration": 5.67, "use_in_fit": true, "n_substitutions": "1", "n_variants": 13106, "censored": "not censored", "probability escape": 0.11621397833053564}, {"sample": "Lib1-230613-antibody-dimeric-ACE2-5.67", "concentration": 5.67, "use_in_fit": true, "n_substitutions": "2", "n_variants": 9864, "censored": "not censored", "probability escape": 0.18927111719383616}, {"sample": "Lib1-230613-antibody-dimeric-ACE2-5.67", "concentration": 5.67, "use_in_fit": true, "n_substitutions": ">2", "n_variants": 6658, "censored": "not censored", "probability escape": 0.25398151096425353}]}}, {"mode": "vega-lite"});
 </script>
 </div>
 </div>
@@ -8736,6 +8741,7 @@ If there is more than one epitope, we fit models with fewer epitopes too:</p>
 <span class="n">plot_hide_stats</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="s2">"plot_hide_stats"</span><span class="p">]</span>
 
 <span class="n">site_numbering_map</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">site_numbering_map_csv</span><span class="p">)</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s2">"sequential_site"</span><span class="p">)</span>
+<span class="k">assert</span> <span class="n">site_numbering_map</span><span class="p">[[</span><span class="s2">"sequential_site"</span><span class="p">,</span> <span class="s2">"reference_site"</span><span class="p">]]</span><span class="o">.</span><span class="n">notnull</span><span class="p">()</span><span class="o">.</span><span class="n">all</span><span class="p">()</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
 
 <span class="k">if</span> <span class="s2">"addtl_slider_stats"</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">escape_plot_kwargs</span><span class="p">:</span>
     <span class="n">escape_plot_kwargs</span><span class="p">[</span><span class="s2">"addtl_slider_stats"</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
@@ -8755,15 +8761,25 @@ If there is more than one epitope, we fit models with fewer epitopes too:</p>
             <span class="n">merge_df</span> <span class="o">=</span> <span class="n">merge_df</span><span class="p">[</span><span class="n">merge_df</span><span class="p">[</span><span class="n">col</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="n">col_min</span><span class="p">]</span>
     <span class="n">escape_plot_kwargs</span><span class="p">[</span><span class="s2">"df_to_merge"</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">merge_df</span><span class="p">[[</span><span class="s2">"site"</span><span class="p">,</span> <span class="s2">"mutant"</span><span class="p">,</span> <span class="n">stat</span><span class="p">]])</span>
 
+<span class="n">addtl_site_cols</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">c</span>
+    <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">site_numbering_map</span><span class="o">.</span><span class="n">columns</span>
+    <span class="k">if</span> <span class="n">c</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">"site"</span><span class="p">)</span> <span class="ow">and</span> <span class="n">c</span> <span class="o">!=</span> <span class="s2">"reference_site"</span>
+<span class="p">]</span>
 <span class="n">escape_plot_kwargs</span><span class="p">[</span><span class="s2">"df_to_merge"</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
     <span class="n">site_numbering_map</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s2">"reference_site"</span><span class="p">:</span> <span class="s2">"site"</span><span class="p">})[</span>
-        <span class="p">[</span><span class="s2">"site"</span><span class="p">,</span> <span class="s2">"sequential_site"</span><span class="p">,</span> <span class="s2">"region"</span><span class="p">]</span>
+        <span class="p">[</span><span class="s2">"site"</span><span class="p">,</span> <span class="o">*</span><span class="n">addtl_site_cols</span><span class="p">,</span> <span class="s2">"region"</span><span class="p">]</span>
     <span class="p">]</span>
 <span class="p">)</span>
+<span class="k">if</span> <span class="s2">"addtl_tooltip_stats"</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">escape_plot_kwargs</span><span class="p">:</span>
+    <span class="n">escape_plot_kwargs</span><span class="p">[</span><span class="s2">"addtl_tooltip_stats"</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">addtl_site_cols</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">c</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">escape_plot_kwargs</span><span class="p">[</span><span class="s2">"addtl_tooltip_stats"</span><span class="p">]:</span>
+        <span class="n">escape_plot_kwargs</span><span class="p">[</span><span class="s2">"addtl_tooltip_stats"</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
 
-<span class="k">if</span> <span class="n">assay</span> <span class="o">==</span> <span class="s2">"receptor_affinity"</span><span class="p">:</span>
-    <span class="n">escape_plot_kwargs</span><span class="p">[</span><span class="s2">"scale_stat_col"</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
-    <span class="n">escape_plot_kwargs</span><span class="p">[</span><span class="s2">"rename_stat_col"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"receptor affinity"</span>
+<span class="n">escape_plot_kwargs</span><span class="p">[</span><span class="s2">"scale_stat_col"</span><span class="p">]</span> <span class="o">=</span> <span class="n">assay_config</span><span class="p">[</span><span class="s2">"scale_stat"</span><span class="p">]</span>
+<span class="k">if</span> <span class="n">assay_config</span><span class="p">[</span><span class="s2">"stat_name"</span><span class="p">]</span> <span class="o">!=</span> <span class="s2">"escape"</span><span class="p">:</span>
+    <span class="n">escape_plot_kwargs</span><span class="p">[</span><span class="s2">"rename_stat_col"</span><span class="p">]</span> <span class="o">=</span> <span class="n">assay_config</span><span class="p">[</span><span class="s2">"stat_name"</span><span class="p">]</span>
 
 <span class="k">if</span> <span class="n">spatial_distances</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Reading spatial distances from </span><span class="si">{</span><span class="n">spatial_distances</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
@@ -8790,7 +8806,7 @@ If there is more than one epitope, we fit models with fewer epitopes too:</p>
 
     <span class="nb">print</span><span class="p">(</span><span class="s2">"Here is the neutralization curve:"</span><span class="p">)</span>
     <span class="n">display</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">curves_plot</span><span class="p">())</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">"Here is the mutation-escape plot:"</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Here is the mutation-effect plot:"</span><span class="p">)</span>
     <span class="n">display</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">mut_escape_plot</span><span class="p">(</span><span class="o">**</span><span class="n">escape_plot_kwargs</span><span class="p">))</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="se">\n\n</span><span class="s2">Writing the </span><span class="si">{</span><span class="n">n</span><span class="si">}</span><span class="s2"> epitope model to </span><span class="si">{</span><span class="n">pickle_file</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
@@ -8813,26 +8829,26 @@ If there is more than one epitope, we fit models with fewer epitopes too:</p>
 Fitting a model for 1 epitopes
 #
 # Fitting site-level fixed Hill coefficient and non-neutralized frac model.
-# Starting optimization of 202 parameters at Sun Aug 20 07:32:08 2023.
+# Starting optimization of 202 parameters at Wed Aug 30 13:13:07 2023.
         step    time_sec        loss    fit_loss  reg_escape  reg_spread reg_spatial reg_uniqueness reg_uniqueness2 reg_activity reg_hill_coefficient reg_non_neutralized_frac
-           0    0.024622       17655       17640           0           0           0              0               0       15.399                    0                        0
-         100      2.4765       13038       13018      8.1571           0           0              0               0       12.331                    0                        0
-# Successfully finished at Sun Aug 20 07:32:11 2023.
+           0    0.023135       17655       17640           0           0           0              0               0       15.399                    0                        0
+         100       2.578       13038       13018      8.1571           0           0              0               0       12.331                    0                        0
+# Successfully finished at Wed Aug 30 13:13:09 2023.
 #
 # Fitting fixed Hill coefficient and non-neutralized frac model.
-# Starting optimization of 3747 parameters at Sun Aug 20 07:32:11 2023.
+# Starting optimization of 3747 parameters at Wed Aug 30 13:13:09 2023.
         step    time_sec        loss    fit_loss  reg_escape  reg_spread reg_spatial reg_uniqueness reg_uniqueness2 reg_activity reg_hill_coefficient reg_non_neutralized_frac
-           0    0.066761       26205       26043      149.46           0           0              0               0        12.33                    0                        0
-         200      11.817       23339       22997      327.73           0           0              0               0       13.972                    0                        0
-         319      18.589       23328       22985      328.43           0           0              0               0       13.982                    0                        0
-# Successfully finished at Sun Aug 20 07:32:29 2023.
+           0    0.060236       26205       26043      149.46           0           0              0               0        12.33                    0                        0
+         200      12.751       23339       22997      327.73           0           0              0               0       13.972                    0                        0
+         319      20.064       23328       22985      328.43           0           0              0               0       13.982                    0                        0
+# Successfully finished at Wed Aug 30 13:13:30 2023.
 #
 # Fitting model.
-# Starting optimization of 3749 parameters at Sun Aug 20 07:32:29 2023.
+# Starting optimization of 3749 parameters at Wed Aug 30 13:13:30 2023.
         step    time_sec        loss    fit_loss  reg_escape  reg_spread reg_spatial reg_uniqueness reg_uniqueness2 reg_activity reg_hill_coefficient reg_non_neutralized_frac
-           0    0.050569       23315       22985      328.43           0           0              0               0       1.3982                    0                        0
-          11     0.57762       23017       22686      328.43           0           0              0               0       1.3352               1.7688                  0.10687
-# Successfully finished at Sun Aug 20 07:32:30 2023.
+           0    0.055144       23315       22985      328.43           0           0              0               0       1.3982                    0                        0
+          11     0.63439       23017       22686      328.43           0           0              0               0       1.3352               1.7688                  0.10687
+# Successfully finished at Wed Aug 30 13:13:30 2023.
 Here is the neutralization curve:
 </pre>
 </div>
@@ -8841,23 +8857,23 @@ Here is the neutralization curve:
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output" data-mime-type="text/html" tabindex="0">
 <style>
-  #altair-viz-328e8ffc9c94436fbdf25a948a052224.vega-embed {
+  #altair-viz-78166ab37ca645248d6060b0c8ebbb9a.vega-embed {
     width: 100%;
     display: flex;
   }
 
-  #altair-viz-328e8ffc9c94436fbdf25a948a052224.vega-embed details,
-  #altair-viz-328e8ffc9c94436fbdf25a948a052224.vega-embed details summary {
+  #altair-viz-78166ab37ca645248d6060b0c8ebbb9a.vega-embed details,
+  #altair-viz-78166ab37ca645248d6060b0c8ebbb9a.vega-embed details summary {
     position: relative;
   }
 </style>
-<div id="altair-viz-328e8ffc9c94436fbdf25a948a052224"></div>
+<div id="altair-viz-78166ab37ca645248d6060b0c8ebbb9a"></div>
 <script type="text/javascript">
   var VEGA_DEBUG = (typeof VEGA_DEBUG == "undefined") ? {} : VEGA_DEBUG;
   (function(spec, embedOpt){
     let outputDiv = document.currentScript.previousElementSibling;
-    if (outputDiv.id !== "altair-viz-328e8ffc9c94436fbdf25a948a052224") {
-      outputDiv = document.getElementById("altair-viz-328e8ffc9c94436fbdf25a948a052224");
+    if (outputDiv.id !== "altair-viz-78166ab37ca645248d6060b0c8ebbb9a") {
+      outputDiv = document.getElementById("altair-viz-78166ab37ca645248d6060b0c8ebbb9a");
     }
     const paths = {
       "vega": "https://cdn.jsdelivr.net/npm/vega@5?noext",
@@ -8910,7 +8926,7 @@ Here is the neutralization curve:
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>Here is the mutation-escape plot:
+<pre>Here is the mutation-effect plot:
 </pre>
 </div>
 </div>
@@ -8918,23 +8934,23 @@ Here is the neutralization curve:
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output" data-mime-type="text/html" tabindex="0">
 <style>
-  #altair-viz-aa10e3f323804ae38838474c5aaac635.vega-embed {
+  #altair-viz-93fb6ee8a4074ef088652b2e1e4aa2ed.vega-embed {
     width: 100%;
     display: flex;
   }
 
-  #altair-viz-aa10e3f323804ae38838474c5aaac635.vega-embed details,
-  #altair-viz-aa10e3f323804ae38838474c5aaac635.vega-embed details summary {
+  #altair-viz-93fb6ee8a4074ef088652b2e1e4aa2ed.vega-embed details,
+  #altair-viz-93fb6ee8a4074ef088652b2e1e4aa2ed.vega-embed details summary {
     position: relative;
   }
 </style>
-<div id="altair-viz-aa10e3f323804ae38838474c5aaac635"></div>
+<div id="altair-viz-93fb6ee8a4074ef088652b2e1e4aa2ed"></div>
 <script type="text/javascript">
   var VEGA_DEBUG = (typeof VEGA_DEBUG == "undefined") ? {} : VEGA_DEBUG;
   (function(spec, embedOpt){
     let outputDiv = document.currentScript.previousElementSibling;
-    if (outputDiv.id !== "altair-viz-aa10e3f323804ae38838474c5aaac635") {
-      outputDiv = document.getElementById("altair-viz-aa10e3f323804ae38838474c5aaac635");
+    if (outputDiv.id !== "altair-viz-93fb6ee8a4074ef088652b2e1e4aa2ed") {
+      outputDiv = document.getElementById("altair-viz-93fb6ee8a4074ef088652b2e1e4aa2ed");
     }
     const paths = {
       "vega": "https://cdn.jsdelivr.net/npm/vega@5?noext",
