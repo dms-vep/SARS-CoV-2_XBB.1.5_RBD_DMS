@@ -6,7 +6,7 @@
 # --------------------------------------------------------------------------------------
 
 summary:
-  min_times_seen: 3  # only include mutations with times_seen >= this
+  min_times_seen: 4  # only include mutations with times_seen >= this
   min_frac_models: 1  # only include mutations in >= this fraction of models
   alphabet: [A, C, D, E, F, G, H, I, K, L, M, N, P, Q, R, S, T, V, W, Y, -]  # amino acids to include
   init_floor_escape_at_zero: true  # initially floor site escape to be >= 0?
@@ -32,7 +32,7 @@ summary:
       negative_color: "#F0E442"  # yellow
       max_at_least: 1
       min_at_least: 0
-      init_min_value: -3  # initial min value in slider
+      init_min_value: -1.5  # initial min value in slider
   other_assays:  # other assays that we show, empty dict if no assays being shown
     receptor_affinity:  # assay type
       monomeric ACE2 affinity:  # name of particular assay condition
@@ -42,7 +42,7 @@ summary:
         negative_color: "#D55E00"  # red
         max_at_least: 1
         min_at_least: 0
-        init_min_value: -10  # initial min value in slider
+        init_min_value: -1.5  # initial min value in slider
       dimeric ACE2 affinity:  # name of particular assay condition
         condition: dimeric_ACE2  # condition specified in `avg_escape`
         stat: receptor affinity_median  # statisti used for mutation effects
@@ -50,7 +50,7 @@ summary:
         negative_color: "#D55E00"  # red
         max_at_least: 1
         min_at_least: 0
-        init_min_value: -10  # initial min value in slider
+        init_min_value: -1.5  # initial min value in slider
   title: Effects of mutations to RBD of SARS-CoV-2 XBB.1.5 on escape from serum antibodies (sera from human XBB breakthrough infections), spike-mediated cell entry, and ACE2 affinity as measured in pseudotyped lentiviral deep mutational scanning experiments
   legend: |
     This is is an interactive chart. Mouseover points for details and measurements, and
