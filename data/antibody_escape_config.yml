@@ -98,8 +98,24 @@ escape_plot_kwargs_default: &escape_plot_kwargs_default
     - sequential_site
   heatmap_max_at_least: 2
   heatmap_min_at_least: -2
-  heatmap_max_fixed: 2.3
-  heatmap_min_fixed: -2
+  init_floor_at_zero: false
+  init_site_statistic: sum
+  site_zoom_bar_color_col: region  # supplied in `site_numbering_map`
+  sites_to_show: 
+    include_range: 
+      - 331
+      - 531
+
+# keyword arguments to `Polyclonal.mut_escape_plot`
+escape_plot_kwargs_default_receptor: &escape_plot_kwargs_default_receptor
+  addtl_slider_stats:
+    times_seen: 4
+  addtl_tooltip_stats:
+    - sequential_site
+  heatmap_max_at_least: 2
+  heatmap_min_at_least: -2
+  heatmap_max_fixed: 3
+  heatmap_min_fixed: -3
   init_floor_at_zero: false
   init_site_statistic: sum
   site_zoom_bar_color_col: region  # supplied in `site_numbering_map`
@@ -338,7 +354,7 @@ receptor_selections:
     neut_standard_name: neut_standard
     prob_escape_filters: *prob_escape_filters_default
     polyclonal_params: *receptor_polyclonal_params_default
-    escape_plot_kwargs: *escape_plot_kwargs_default
+    escape_plot_kwargs: *escape_plot_kwargs_default_receptor
     plot_hide_stats: *receptor_plot_hide_stats_default
     no_antibody_sample: Lib1-230615-no-antibody-control-medium-ACE2
     antibody_samples:
@@ -362,7 +378,7 @@ receptor_selections:
     neut_standard_name: neut_standard
     prob_escape_filters: *prob_escape_filters_default
     polyclonal_params: *receptor_polyclonal_params_default
-    escape_plot_kwargs: *escape_plot_kwargs_default
+    escape_plot_kwargs: *escape_plot_kwargs_default_receptor
     plot_hide_stats: *receptor_plot_hide_stats_default
     no_antibody_sample: Lib2-230615-no-antibody-control-medium-ACE2
     antibody_samples:
@@ -386,7 +402,7 @@ receptor_selections:
     neut_standard_name: neut_standard
     prob_escape_filters: *prob_escape_filters_default
     polyclonal_params: *receptor_polyclonal_params_default
-    escape_plot_kwargs: *escape_plot_kwargs_default
+    escape_plot_kwargs: *escape_plot_kwargs_default_receptor
     plot_hide_stats: *receptor_plot_hide_stats_default
     no_antibody_sample: Lib1-230613-no-antibody-control
     antibody_samples:
@@ -410,7 +426,7 @@ receptor_selections:
     neut_standard_name: neut_standard
     prob_escape_filters: *prob_escape_filters_default
     polyclonal_params: *receptor_polyclonal_params_default
-    escape_plot_kwargs: *escape_plot_kwargs_default
+    escape_plot_kwargs: *escape_plot_kwargs_default_receptor
     plot_hide_stats: *receptor_plot_hide_stats_default
     no_antibody_sample: Lib2-230613-no-antibody-control
     antibody_samples:
@@ -501,13 +517,27 @@ avg_antibody_escape:
       - Lib2-230815-sera-343C_mediumACE2
 
 # Define the receptor affinity experiments to average
-avg_receptor_affinity_default: &avg_receptor_affinity_default
-  <<: *avg_antibody_escape_default
-  icXX: 50  # IC50
+
+# Define defaults for each receptor used via the merge (<<) operator
+avg_antibody_escape_default_receptor: &avg_antibody_escape_default_receptor
+  icXX: 50
+  escape_plot_kwargs:
+    <<: *escape_plot_kwargs_default_receptor
+    avg_type: median
+    per_model_tooltip: true
+  plot_hide_stats: *plot_hide_stats_default
+  legend: |
+    Use the site zoom bar at the top to zoom in on specific sites. The line plot shows a summary statistic indicating of the mutation effects at each site. The heat map shows effects for individual mutations, with parental amino-acid identities indicated by x and gray indicating non-measured mutations. Mouse over points for details.
+
+    Options at the bottom of the plot let you modify the display, such as by selecting how many different variants a mutation must be seen in to be shown (*minimum times_seen*), how many different experimental selections the mutation was measured in (*minimum n_models*), what site summary statistic to show, etc.
+
+    You can filter by the functional effects of mutations. Mutations removed by this filter are shown as dark gray squares in the heat map to distinguish unmeasured mutations from ones measured to be deleterious.
+
+    The *minimum max* slider is useful to select the sites where mutations have the largest effect.
 
 avg_receptor_affinity:
   monomeric_ACE2:
-    <<: *avg_receptor_affinity_default
+    <<: *avg_antibody_escape_default_receptor
     title: Affinity for monomeric ACE2
     plot_hide_stats: *receptor_plot_hide_stats_default
     selections:
@@ -515,7 +545,7 @@ avg_receptor_affinity:
       - Lib2-230615-monomeric-ACE2
 
   dimeric_ACE2:
-    <<: *avg_receptor_affinity_default
+    <<: *avg_antibody_escape_default_receptor
     title: Affinity map for dimeric ACE2
     plot_hide_stats: *receptor_plot_hide_stats_default
     selections:
