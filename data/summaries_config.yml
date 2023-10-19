@@ -32,30 +32,36 @@ summary:
       negative_color: "#F0E442"  # yellow
       max_at_least: 1
       min_at_least: 0
+      le_filters:
+        effect_std: 1.6
       init_min_value: -1.5  # initial min value in slider
   other_assays:  # other assays that we show, empty dict if no assays being shown
-    receptor_affinity:  # assay type
-      monomeric ACE2 affinity:  # name of particular assay condition
+    ACE2_binding:  # assay type
+      monomeric ACE2 binding:  # name of particular assay condition
         condition: monomeric_ACE2  # condition specified in `avg_escape`
-        stat: receptor affinity_median  # statisti used for mutation effects
+        stat: ACE2 binding_median  # statisti used for mutation effects
         positive_color: "#0072B2"  # dark blue
         negative_color: "#D55E00"  # red
         max_at_least: 1
         min_at_least: 0
         fixed_max: 3
         fixed_min: -3
-        init_min_value: -1.5  # initial min value in slider
-      dimeric ACE2 affinity:  # name of particular assay condition
+        init_min_value: -2  # initial min value in slider
+        le_filters:
+          ACE2 binding_std: 5
+      dimeric ACE2 binding:  # name of particular assay condition
         condition: dimeric_ACE2  # condition specified in `avg_escape`
-        stat: receptor affinity_median  # statisti used for mutation effects
+        stat: ACE2 binding_median  # statisti used for mutation effects
         positive_color: "#0072B2"  # dark blue
         negative_color: "#D55E00"  # red
         max_at_least: 1
         min_at_least: 0
         fixed_max: 3
         fixed_min: -3
-        init_min_value: -1.5  # initial min value in slider
-  title: Effects of mutations to RBD of SARS-CoV-2 XBB.1.5 on escape from serum antibodies (sera from human XBB breakthrough infections), spike-mediated cell entry, and ACE2 affinity as measured in pseudotyped lentiviral deep mutational scanning experiments
+        init_min_value: -2  # initial min value in slider
+        le_filters:
+          ACE2 binding_std: 5
+  title: Effects of mutations to RBD of SARS-CoV-2 XBB.1.5 on escape from serum antibodies (sera from human XBB breakthrough infections), spike-mediated cell entry, and ACE2 binding as measured in pseudotyped lentiviral deep mutational scanning experiments
   legend: |
     This is is an interactive chart. Mouseover points for details and measurements, and
     use the top zoom bar to zoom in on specific sites. The options at the bottom let you
